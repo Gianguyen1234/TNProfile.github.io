@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThaoNguyen - PHP Developer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            /* Updated font to Roboto */
+            background-color: #f5f5f5;
+            /* Light grey background */
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            scroll-behavior: smooth;
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -21,35 +26,30 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
 
         .container {
-            background-color: white;
+            background-color: #ffffff;
+            /* Container background color */
             padding: 20px;
-            max-width: 800px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transform: translateY(20px);
-            animation: slideUp 1s ease-out forwards;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin: 20px 0;
+            border-radius: 8px;
+            /* Rounded corners for the container */
         }
 
         h1 {
-            color: #333;
+            color: #1976d2;
+            /* Primary color for header */
             font-size: 2.5rem;
+            margin: 0;
             animation: popIn 1.5s ease-in-out;
         }
 
@@ -58,6 +58,7 @@
                 transform: scale(0.5);
                 opacity: 0;
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1;
@@ -66,54 +67,143 @@
 
         p {
             color: #555;
+            /* Dark grey for paragraphs */
             margin-top: 10px;
             font-size: 1.2rem;
         }
 
-        .skills {
-            margin-top: 20px;
+        .section {
+            margin-top: 30px;
             text-align: left;
-            animation: fadeInSkills 2s ease-in-out;
+            padding: 20px;
+            background: #e3f2fd;
+            /* Light blue background for sections */
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInSection 2s ease-in-out;
         }
 
-        @keyframes fadeInSkills {
+        @keyframes fadeInSection {
             from {
                 opacity: 0;
+                transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .skills h3 {
+        h3 {
+            color: #0d47a1;
+            /* Darker blue for section headers */
+            font-size: 1.8rem;
             margin-bottom: 10px;
-            color: #0073e6;
-            font-size: 1.5rem;
         }
 
+        /* Skills Section */
         .skills ul {
             list-style: none;
             padding: 0;
         }
 
         .skills ul li {
-            background: #f0f0f0;
+            background-color: #2196f3;
+            /* Skill item background color */
+            color: white;
             padding: 10px;
-            margin-bottom: 5px;
-            position: relative;
-            transition: all 0.3s ease;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            /* Align items vertically center */
+        }
+
+        .skills ul li i {
+            font-size: 24px;
+            /* Icon size */
+            margin-right: 10px;
+            /* Space between icon and text */
+            transition: color 0.3s;
+            /* Smooth transition for hover effect */
+        }
+
+        .skills ul li i.bx-code-alt {
+            color: #ff5722;
+            /* PHP icon color (orange) */
+        }
+
+        .skills ul li i.bxl-vuejs {
+            color: #42b883;
+            /* Vue.js icon color (green) */
+        }
+
+        .skills ul li i.bx-database {
+            color: #dbb11a;
+            /* MySQL icon color (green) */
+        }
+
+        .skills ul li i.bx-git-branch {
+            color: #f44336;
+            /* Git icon color (red) */
+        }
+
+        .skills ul li i.bxl-html5 {
+            color: #e44d26;
+            /* HTML5 icon color (red-orange) */
+        }
+
+        .skills ul li i.bx-plug {
+            color: #3f51b5;
+            /* API icon color (blue) */
         }
 
         .skills ul li:hover {
-            background-color: #0073e6;
-            color: white;
+            background-color: #1976d2;
+            /* Darker blue on hover */
             transform: translateX(10px);
+        }
+
+        /* Projects Section */
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .btn {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #0073e6;
+            background-color: #1976d2;
+            /* Button background color */
             color: white;
             border: none;
             border-radius: 5px;
@@ -127,7 +217,8 @@
         }
 
         .btn:hover {
-            background-color: #005bb5;
+            background-color: #0d47a1;
+            /* Button hover color */
         }
 
         .btn::before {
@@ -148,24 +239,56 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Thao Nguyen Lives in Alaska</h1>
-        <p>Experienced PHP Developer with a passion for web development and clean code.</p>
-        
-        <div class="skills">
-            <h3>Skills:</h3>
+        <h1>Thao Nguyen - PHP Developer</h1>
+        <p>Self-taught PHP Developer passionate about web development and writing clean, efficient code.</p>
+
+        <div class="skills section">
+            <h3>Skills</h3>
             <ul>
-                <li>PHP (Laravel, Symfony)</li>
-                <li>JavaScript (Vue.js, Nextjs)</li>
-                <li>MySQL, SQL server</li>
-                <li>Version Control (Git, GitHub)</li>
-                <li>HTML5, CSS3</li>
-                <li>APIs, RESTful Services</li>
+                <li><i class='bx bx-code-alt'></i> PHP (Laravel, Symfony)</li>
+                <li><i class='bx bxl-vuejs'></i> JavaScript (Vue.js, Next.js)</li>
+                <li><i class='bx bx-data'></i> MySQL, SQL Server</li>
+                <li><i class='bx bx-git-branch'></i> Version Control (Git, GitHub)</li>
+                <li><i class='bx bxl-html5'></i> HTML5, CSS3</li>
+                <li><i class='bx bx-plug'></i> APIs, RESTful Services</li>
             </ul>
         </div>
-        
-        <a href="https://github.com/Gianguyen1234" class="btn">View My GitHub</a>
+
+
+        <div class="projects section">
+            <h3>Projects</h3>
+            <div class="project-item">
+                <img src="https://via.placeholder.com/150" alt="Project 1">
+                <div>
+                    <h4>E-commerce Platform</h4>
+                    <p>Developed a fully functional e-commerce platform using Laravel and Vue.js.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="https://via.placeholder.com/150" alt="Project 2">
+                <div>
+                    <h4>Personal Blog</h4>
+                    <p>Built a personal blogging website with a modern UI using PHP and MySQL.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="education section">
+            <h3>Education</h3>
+            <p>Bachelor of Science in Computer Science, University of Alaska (2015-2019)</p>
+        </div>
+
+        <div class="contact section">
+            <h3>Contact</h3>
+            <a href="mailto:thao@example.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
+            <a href="https://github.com/Gianguyen1234" class="btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/yourprofile" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <!-- Example for LinkedIn -->
+        </div>
     </div>
 </body>
+
 </html>
